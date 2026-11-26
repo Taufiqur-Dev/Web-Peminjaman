@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manajemen Inventaris</title>
+    <link href="../src/output.css" rel="stylesheet" />
+  </head>
+  <body
+    class="bg-slate-100 text-slate-800  min-h-screen flex flex-col"
+  >
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+      <div
+        class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between"
+      >
+        <h1 class="text-xl font-bold text-slate-900">
+          Dashboard <span class="text-indigo-600">SB</span>
+        </h1>
+        <span
+          id="total-aset"
+          class="text-sm font-semibold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full"
+        >
+          Admin
+        </span>
+      </div>
+    </header>
+
+     <div class="flex  flex-1 w-full relative font-sans-serif">
+      <aside
+        id="sidebar"
+        class="fixed md:static inset-y-0 left-0 z-20 w-56 md:w-48 bg-white border-r-2 border-blue-600 flex flex-col justify-between py-4 shrink-0 transform -translate-x-full md:translate-x-0 transition-transform duration-200 ease-in-out shadow-lg md:shadow-none top-14.25 md:top-0 h-[calc(100vh-57px)] md:h-auto"
+      >
+        <ul
+          class="text-center font-semibold text-black space-y-2 sm:space-y-4 uppercase tracking-wider text-xs sm:text-sm px-2 md:px-0"
+        >
+          <li>
+            <button
+              class="cursor-pointer py-2 w-full rounded hover:bg-slate-100 hover:text-slate-900 text-slate-600 bg-blue-50  border-blue-600  md:rounded-none"
+              
+            >
+              <a href="index.html">Dashboard</a>
+            </button>
+          </li>
+          <li>
+            <button
+              class="cursor-pointer hover:bg-slate-100 hover:text-slate-900 text-slate-600  border-blue-600  py-2 w-full rounded md:rounded-none"
+              
+            >
+              <a href="alat.html">alat</a>
+            </button>
+          </li>
+          <li>
+            <button
+              class="cursor-pointer  hover:bg-slate-100 hover:text-slate-900 text-slate-600 border-blue-600  py-2 w-full rounded md:rounded-none"
+            >
+              <a href="kategori_alat.html">kategori alat</a>
+            </button>
+          </li>
+          <li>
+            <button
+              class="cursor-pointer  hover:bg-slate-100 hover:text-slate-900 text-slate-600 border-blue-600 py-2 w-full rounded md:rounded-none"
+            >
+              <a href="peminjam.html">data peminjam</a>
+            </button>
+          </li>
+        </ul>
+      </aside>
+
+     <main class=" p-6 max-w-7xl w-full mx-auto flex flex-col gap-6 pl-10">
+          <!-- [BANNER SAMBUTAN] Informasi status operasional toko -->
+          <section
+            aria-labelledby="welcome-heading"
+            class="bg-linear-to-r from-indigo-600 to-violet-700 rounded-2xl p-6 text-white"
+          >
+            <p
+              class="inline-flex items-center gap-1.5 py-0.5 px-2.5 rounded-full bg-white/15 border border-white/20 text-xs mb-2"
+            >
+              <span
+                class="w-2 h-2 rounded-full bg-emerald-400"
+                aria-hidden="true"
+              ></span>
+               Web open
+            </p>
+            <h1 id="welcome-heading" class="text-2xl font-extrabold">
+              Selamat Datang di SB (Sileh Barang)
+            </h1>
+            <p id="banner-description" class="text-sm text-indigo-100 mt-1">
+              Temukan barang pinjaman berkualitas.
+            </p>
+          </section>
+
+          <div >
+            <section
+            class=" p-3 sm:p-6 rounded-lg shadow-md border border-white  space-y-8"
+            aria-label="Daftar Katalog alat"
+          >
+            <header
+              class="flex items-center justify-between pb-2 border-b border-gray-200"
+            >
+              <h2
+                id="terbaru-heading"
+                class="text-sm sm:text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-2 sm:pl-3"
+              >
+                alat terpopuler
+              </h2>
+              <a
+                href="alat.html"
+                class="text-xs sm:text-sm font-semibold text-indigo-600 hover:underline shrink-0 ml-2"
+              >
+                Lihat Semua &rarr;
+              </a>
+            </header>
+
+            <ul
+              class="grid grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"
+            >
+              <li class="flex h-full">
+                <article
+                  class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between w-full hover:shadow-md transition-shadow"
+                >
+                  <figure class="relative">
+                    <img
+                      src="images Kabel UTP Cat6 (Roll).png"
+                      alt="Kabel UTP Cat6 (Roll)"
+                      class="w-full h-32 sm:h-36 object-cover"
+                    />
+                  </figure>
+                  <section class="p-3 flex-1 flex flex-col justify-between">
+                    <header>
+                      <h3 class="font-bold text-slate-800 text-xs sm:text-sm">
+                        Kabel UTP Cat6 (Roll)
+                      </h3>
+                      <p class="text-[11px] text-slate-500 mt-1 line-clamp-2">
+                        Baik
+                      </p>
+                    </header>
+                    <footer
+                      class="mt-2 pt-2 border-t border-slate-100 flex flex-col justify-between space-y-2"
+                    >
+                      <p
+                        class="text-rose-500 font-extrabold text-xs sm:text-sm"
+                      >
+                        Lokasi Lemari Jaringan A
+                      </p>
+                      <button
+                        type="button"
+                        class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-1 px-2 rounded-lg text-xs transition-colors"
+                      >
+                        Pinjam sekarang
+                      </button>
+                    </footer>
+                  </section>
+                </article>
+              </li>
+
+              <li class="flex h-full">
+                <article
+                  class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between w-full hover:shadow-md transition-shadow"
+                >
+                  <figure class="relative">
+                    <img
+                      src="imgas Multimeter.png"
+                      alt="Multimeter Digital"
+                      class="w-full h-32 sm:h-36 object-cover"
+                    />
+                  </figure>
+                  <section class="p-3 flex-1 flex flex-col justify-between">
+                    <header>
+                      <h3 class="font-bold text-slate-800 text-xs sm:text-sm">
+                        Multimeter Digital
+                      </h3>
+                      <p class="text-[11px] text-slate-500 mt-1 line-clamp-2">
+                        baik
+                      </p>
+                    </header>
+                    <footer
+                      class="mt-2 pt-2 border-t border-slate-100 flex flex-col justify-between space-y-2"
+                    >
+                      <p
+                        class="text-rose-500 font-extrabold text-xs sm:text-sm"
+                      >
+                        Lokasi Rak Elektro C
+                      </p>
+                      <button
+                        type="button"
+                        class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-1 px-2 rounded-lg text-xs transition-colors"
+                      >
+                        Pinjam sekarang
+                      </button>
+                    </footer>
+                  </section>
+                </article>
+              </li>
+
+              <li class="flex h-full">
+                <article
+                  class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between w-full hover:shadow-md transition-shadow relative"
+                >
+                  <figure class="relative">
+                    <span
+                      class="absolute top-2 left-2 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow z-10"
+                      >New</span
+                    >
+                    <img
+                      src="images Buku Mendapat 1 miliar di umur 7 tahun.png"
+                      alt="Mendapat 1 miliar di umur 7 tahun"
+                      class="w-full h-32 sm:h-36 object-cover"
+                    />
+                  </figure>
+                  <section class="p-3 flex-1 flex flex-col justify-between">
+                    <header>
+                      <h3 class="font-bold text-slate-800 text-xs sm:text-sm">
+                        Buku Mendapat 1 miliar di umur 7 tahun
+                      </h3>
+                      <p class="text-[11px] text-slate-500 mt-1 line-clamp-2">
+                        Sanggat baik (New)
+                      </p>
+                    </header>
+                    <footer
+                      class="mt-2 pt-2 border-t border-slate-100 flex flex-col justify-between space-y-2"
+                    >
+                      <div
+                        class="flex items-baseline justify-start gap-1.5 flex-wrap text-left"
+                      >
+                        <p
+                          class="text-rose-600 font-extrabold text-xs sm:text-sm"
+                        >
+                          Perpustakan Smkn 1 jenanggan
+                        </p>
+                        <p
+                          class="text-tiny sm:text-xs text-slate-400 line-through"
+                        >
+                          
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-1 px-2 rounded-lg text-xs transition-colors"
+                      >
+                        Pinjam sekarang
+                      </button>
+                    </footer>
+                  </section>
+                </article>
+              </li>
+
+              <li class="flex h-full">
+                <article
+                  class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between w-full hover:shadow-md transition-shadow"
+                >
+                  <figure class="relative">
+                    <img
+                      src="../images/tecno.png"
+                      alt="Camera camo"
+                      class="w-full h-32 sm:h-36 object-cover"
+                    />
+                  </figure>
+                  <section class="p-3 flex-1 flex flex-col justify-between">
+                    <header>
+                      <h3 class="font-bold text-slate-800 text-xs sm:text-sm">
+                        Camera camo
+                      </h3>
+                      <p class="text-[11px] text-slate-500 mt-1 line-clamp-2">
+                        Baik
+                      </p>
+                    </header>
+                    <footer
+                      class="mt-2 pt-2 border-t border-slate-100 flex flex-col justify-between space-y-2"
+                    >
+                      <p
+                        class="text-rose-500 font-extrabold text-xs sm:text-sm"
+                      >
+                        Lokasi Ruang Humas
+                      </p>
+                      <button
+                        type="button"
+                        class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-1 px-2 rounded-lg text-xs transition-colors"
+                      >
+                        Pinjam sekarang
+                      </button>
+                    </footer>
+                  </section>
+                </article>
+              </li>
+            </ul>
+          </section>
+          </div>
+        </main>
+        <script src="../js/script.js"></script>
+  </body>
+</html>

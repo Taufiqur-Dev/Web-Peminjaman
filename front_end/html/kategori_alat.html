@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manajemen Inventaris</title>
+    <link href="../src/output.css" rel="stylesheet" />
+  </head>
+  <body
+    class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col"
+  >
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+      <div
+        class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between"
+      >
+        <h1 class="text-xl font-bold text-slate-900">
+          kategori alat <span class="text-indigo-600">SB</span>
+        </h1>
+        <span
+          id="total-aset"
+          class="text-sm font-semibold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full"
+        >
+          Admin
+        </span>
+      </div>
+    </header>
+
+    <div class="flex flex-1 w-full relative font-sans-serif">
+      <aside
+        id="sidebar"
+        class="fixed md:static inset-y-0 left-0 z-20 w-56 md:w-48 bg-white border-r-2 border-blue-600 flex flex-col justify-between py-4 shrink-0 transform -translate-x-full md:translate-x-0 transition-transform duration-200 ease-in-out shadow-lg md:shadow-none top-14.25 md:top-0 h-[calc(100vh-57px)] md:h-auto"
+      >
+        <ul
+          class="text-center font-semibold text-black space-y-2 sm:space-y-4 uppercase tracking-wider text-xs sm:text-sm px-2 md:px-0"
+        >
+          <li>
+            <button class="cursor-pointer hover:bg-slate-100 hover:text-slate-900 text-slate-600 border-blue-600  py-2 w-full rounded md:rounded-none">
+              <a href="index.html">Dashboard</a>
+            </button>
+          </li>
+          <li>
+            <button
+              class="cursor-pointer hover:bg-slate-100 hover:text-slate-900 text-slate-600 border-blue-600  py-2 w-full rounded md:rounded-none"
+            >
+              <a href="alat.html">alat</a>
+            </button>
+          </li>
+          <li>
+            <button
+              class="cursor-pointer hover:bg-slate-100 hover:text-slate-900 text-slate-600 bg-blue-50  border-blue-600  py-2 w-full rounded md:rounded-none"
+            >
+              <a href="kategori_alat.html">kategori alat</a>
+            </button>
+          </li>
+          <li>
+            <button
+              class="cursor-pointer hover:bg-slate-100 hover:text-slate-900 text-slate-600  border-blue-600  py-2 w-full rounded md:rounded-none"
+            >
+              <a href="peminjam.html">data peminjam</a>
+            </button>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Input Nama Kategori -->
+      <!-- [AREA KONTEN KANAN] -->
+      <div class="flex-1 flex flex-col h-screen overflow-y-auto min-w-0">
+        <!-- [TOP NAVBAR] -->
+
+        <!-- [ISI HALAMAN KATALOG KATEGORI] -->
+        <main class="flex-1 p-6 max-w-7xl w-full mx-auto flex flex-col gap-6">
+          <!-- [HEADER & TOMBOL AKSI] Judul halaman & tombol pembuka modal tambah kategori -->
+          <header
+            class="mb-2 flex justify-between items-center flex-wrap gap-4"
+          >
+            <div>
+              <h1 class="text-2xl font-extrabold text-slate-900">
+                Katalog Kategori
+              </h1>
+              <p class="text-sm text-slate-500 mt-1">
+                Kelola klasifikasi dan deskripsi produk toko Anda.
+              </p>
+            </div>
+            <button
+              type="button"
+              id="btn-open-kategori"
+              class="w-auto py-2.5 px-[18px] rounded-lg text-xs font-bold text-white border-none cursor-pointer transition-colors duration-200 flex items-center justify-center gap-2  bg-indigo-600 hover:bg-indigo-700"
+            >
+              <i class="fa-solid fa-plus" aria-hidden="true"></i> +
+              Kategori alat Baru
+            </button>
+          </header>
+
+          <!-- [TABEL DAFTAR KATEGORI] Menampilkan nomor, nama kategori, deskripsi, jumlah produk terkait, & aksi -->
+          <section
+            aria-labelledby="active-kategori-title"
+            class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-xs"
+          >
+            <header class="py-5 px-6 border-b border-slate-100 bg-neutral-50">
+              <h2
+                id="active-kategori-title"
+                class="text-[0.95rem] font-bold text-slate-800 flex items-center gap-2"
+              >
+                <i class="fa-solid fa-tags" aria-hidden="true"></i> Kategori
+                Aktif
+              </h2>
+            </header>
+            <div class="overflow-x-auto max-h-[480px]">
+              <table class="w-full border-collapse text-left text-xs">
+                <thead>
+                  <tr
+                    class="bg-slate-50 border-b border-slate-200 text-slate-600 font-bold"
+                  >
+                    <th scope="col" class="py-3 px-4 w-[50px]">No</th>
+                    <th scope="col" class="py-3 px-4 w-[160px]">
+                      Nama Kategori
+                    </th>
+                    <th scope="col" class="py-3 px-4 min-w-[220px]">
+                      Deskripsi Kategori
+                    </th>
+                    <th scope="col" class="py-3 px-4 text-center w-[110px]">
+                      Aksi
+                    </th>
+                  </tr>
+                </thead>
+                <!-- Wadah Baris Tabel Kategori (Diisi dinamis oleh kategori.js) -->
+                <tbody
+                  id="kategori-list"
+                  class="divide-y divide-slate-100 text-slate-800 [&>tr:hover]:bg-slate-50 [&>tr>td]:py-3 [&>tr>td]:px-4 [&>tr>td]:align-middle"
+                ></tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- [MODAL POP-UP FORM KATEGORI] -->
+    <div
+      id="kategori-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cat-modal-title"
+      class="fixed inset-0 bg-black/60 z-100 flex items-center justify-center p-4 backdrop-blur-[2px] hidden"
+    >
+      <article
+        class="bg-white w-full max-w-[480px] rounded-2xl overflow-hidden shadow-2xl animate-modal"
+      >
+        <!-- Header Modal Gelap -->
+        <header class="py-5 px-6 bg-slate-900 text-white relative">
+          <button
+            type="button"
+            id="btn-close-kategori"
+            class="absolute top-4 right-4 bg-transparent border-none text-slate-400 text-[1.2rem] cursor-pointer p-1 hover:text-white"
+            aria-label="Tutup Modal Kategori"
+          >
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+          <div class="flex items-center gap-2 mb-1.5">
+            <span
+              class="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-xs text-white shadow-sm shrink-0"
+            >
+              SB
+            </span>
+            <span class="text-[0.8rem] font-bold text-slate-300"
+              >Katalog Toko</span
+            >
+          </div>
+          <h3 id="cat-modal-title" class="text-[1.15rem] font-bold">
+            Tambah Kategori Baru
+          </h3>
+          <p id="cat-modal-subtitle" class="text-xs text-slate-300 mt-1">
+            Lengkapi data kategori untuk mengelompokkan alat .
+          </p>
+        </header>
+
+        <!-- Formulir Input Data Kategori -->
+        <form id="kategori-form" class="p-6">
+          <!-- Input Tersembunyi ID Kategori saat Mode Edit -->
+          <input type="hidden" id="edit_kat_id" value="" />
+          <input type="hidden" id="delete_kat_id" value="" />
+
+          <!-- Input Nama Kategori -->
+          <div class="mb-3.5">
+            <label
+              for="kat-name"
+              class="block text-xs font-semibold text-slate-600 mb-1"
+            >
+              Nama Kategori
+            </label>
+            <input
+              type="text"
+              id="kat-name"
+              required
+              placeholder="Contoh: Perlengkapan fotografi"
+              class="w-full text-xs py-2.5 px-3 rounded-lg border border-slate-300 bg-white outline-none transition-all duration-200 focus:border-indigo-600 focus:ring-3 focus:ring-indigo-600/15"
+            />
+          </div>
+
+          <!-- Input Deskripsi Kategori -->
+          <div class="mb-3.5">
+            <label
+              for="kat-description"
+              class="block text-xs font-semibold text-slate-600 mb-1"
+            >
+              Deskripsi Kategori
+            </label>
+            <textarea
+              id="kat-description"
+              rows="3"
+              placeholder="Tuliskan keterangan mengenai jenis Alat dalam kategori ini..."
+              class="w-full text-xs py-2.5 px-3 rounded-lg border border-slate-300 outline-none font-inherit resize-y focus:border-indigo-600 focus:ring-3 focus:ring-indigo-600/15"
+            ></textarea>
+          </div>
+
+          <!-- Tombol Simpan & Batal -->
+          <div class="flex gap-2 mt-2">
+            <button
+              type="submit"
+              id="btn-submit-kategori"
+              class="flex-1 p-3 rounded-lg text-xs font-bold text-white border-none cursor-pointer transition-colors duration-200 flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600"
+            >
+              <i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>
+              Simpan Kategori
+            </button>
+            <button
+              type="button"
+              id="btn-cancel-kategori"
+              class="w-auto px-[18px] py-3 rounded-lg text-xs font-bold text-white border-none cursor-pointer bg-slate-500 hover:bg-slate-600 flex items-center justify-center"
+            >
+              Batal
+            </button>
+          </div>
+        </form>
+      </article>
+    </div>
+
+    <!-- [NOTIFIKASI TOAST] -->
+    <output
+      id="toast"
+      role="status"
+      aria-live="polite"
+      class="fixed bottom-5 right-5 bg-slate-900 text-white text-xs py-3 px-4 rounded-lg shadow-lg flex items-center gap-2 z-60 hidden"
+    >
+      <i
+        class="fa-solid fa-circle-check text-emerald-400"
+        aria-hidden="true"
+      ></i>
+      <span id="toast-message">Notifikasi</span>
+    </output>
+    <script src="../js/kategori.js"></script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>
